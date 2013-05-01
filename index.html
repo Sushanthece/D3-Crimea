@@ -15,6 +15,20 @@
   font: 14px Helvetica Neue;
   background-color: #222;
   
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.25), rgba(255,255,255,.11));
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba(255,255,255,.25)),color-stop(1, rgba(255,255,255,.11)));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.11));
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 -1px 1px #222;
+  padding: 6px 10px 6px 10px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #222;
+  margin: 0;
+  -moz-box-shadow: 0 1px 3px #999;
+  -webkit-box-shadow: 0 1px 3px #999;
+  
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -45,14 +59,14 @@
           <section id="main_content" class="inner" >   
   <div>
   <div style="width:25%;float:left;display:inline-block" >
-   <textarea id="input_data" name="input_data" rows="20" cols="28">
+    <table border="1"><tr><td width="40px" bgcolor="lightblue">Param3</td><td width="40px" bgcolor="Darkgray">Param2</td><td width="40px" bgcolor="Lightpink">Param1</td></tr></table>
+  <textarea id="input_data" name="input_data" rows="20" cols="24">
 Group,Param1,Param2,Param3
 A,56,45,67
 B,56,34,97
 C,46,45,37
 D,36,34,27  </textarea></br>
 <button id="render" class="name">render</button>
-<table border="1"><tr><td width="30px" bgcolor="lightblue">Param3</td><td width="30px" bgcolor="Darkgray">Param2</td><td width="30px" bgcolor="Lightpink">Param1</td></tr></table>
 </div>
   
   <div id="crimeatreemap" style="width:72%;float:right;display:inline-block"></div>
