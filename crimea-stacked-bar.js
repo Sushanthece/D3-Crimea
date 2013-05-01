@@ -33,8 +33,8 @@ d3.select("#render").on("click", function() {
     
   // Transpose the data into layers by cause.
   var causes = d3.layout.stack()(["Param1", "Param1", "Param1"].map(function(cause) {
-    return csv_txt.map(function(d) { //alert(d.Region);
-         return {x: d.Region, y: d[cause]};
+    return csv_txt.map(function(d) { //alert(d.Group);
+         return {x: d.Group, y: d[cause]};
     }); 
   }));
 
