@@ -12,32 +12,31 @@ var z = d3.scale.ordinal()
     .range(["lightpink", "darkgray", "lightblue"]);
 
 d3.select("#render").on("click", function() {
-     
+    
     d3.select("svg")
        .remove();
            
      var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + (height + margin.top) + ")");
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + (height + margin.top) + ")");
 
     txt_value = document.getElementById('input_data').value;
-    csv_txt = d3.csv.parse(txt_value);    
+    csv_txt = d3.csv.parse(txt_value);
     csv_txt.forEach(function(o){
-        o.Param1=parseInt(o.Param1);
-        o.Param2=parseInt(o.Param2);
-        o.Param3=parseInt(o.Param3);
+        o.param1=parseInt(o.param1);
+        o.param2=parseInt(o.param2);
+        o.param3=parseInt(o.param3);
     });
     
     
   // Transpose the data into layers by cause.
-  var causes = d3.layout.stack()(["Param1", "Param1", "Param1"].map(function(cause) {
+  var causes = d3.layout.stack()(["param1", "param2", "param3"].map(function(cause) {
     return csv_txt.map(function(d) { //alert(d.Group);
          return {x: d.Group, y: d[cause]};
     }); 
   }));
-
   
   // Compute the x-domain (by date) and y-domain (by top).
   x.domain(causes[0].map(function(d) { return d.x; }));
@@ -60,7 +59,7 @@ d3.select("#render").on("click", function() {
       .attr("height", function(d) { return y(d.y); })
       .attr("width", x.rangeBand()) 
   rect.append("title")
-        .text(function(d) { return "Group:"+d.x+", value:" +(d.y+3200) ; });
+        .text(function(d) { return "Group:"+d.x+", value:" +(d.y) ; });
      
   // Add y-axis rules.
   var rule = svg.selectAll("g.rule")
